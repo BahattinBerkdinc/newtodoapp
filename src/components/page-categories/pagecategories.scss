@@ -1,0 +1,47 @@
+
+
+.page-categories{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    border: 2px solid red;
+    
+    
+    >a{
+        >div{
+            display: flex;
+            flex-direction: column;
+            border: 1px solid lightgrey;
+            padding: 1rem;
+            border-radius: 20px;
+            gap: 1rem;
+            background: #8E2DE2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            >span{
+                font-size: .8rem;
+                color: lightgrey;
+                font-weight: 200;
+                margin-left: .7rem;
+                
+            }
+            >div{
+    
+                display: flex;
+                align-items: center;
+                column-gap: 1rem;
+    
+                span{
+                    font-size: 1.4rem;
+                    text-transform: uppercase;
+                    color: white;
+                }
+    
+                img{
+                    width: 70px;
+                }
+            }
+        }
+    }
+}

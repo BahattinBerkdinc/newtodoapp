@@ -1,12 +1,12 @@
 
-import './App.css';
-import LoginForm from './components/login-form/LoginForm';
+import AppRouter from './router/router';
+
 
 function App() {
   return (
-    <div className="App">
-      <LoginForm/>
-    </div>
+    <>
+      <AppRouter/>
+    </>
   );
 }
 

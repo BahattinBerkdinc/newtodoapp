@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  background-color: rgba(128, 128, 128, 0.225);
   padding: 2rem;
   border-radius: 15px;
 
@@ -14,16 +13,51 @@
 
     span {
       color: lightgray;
-      padding: 0.2rem 1rem;
-      border: 1px solid rgba(211, 211, 211, 0.454);
-      border-radius: 15px;
       font-weight: 100;
-      cursor: pointer;
+      display: flex;
+      column-gap: .5rem;
+      text-transform: capitalize;
+
+    
+      
       &:active{
         border-color: #373b44;
-      }
+      } 
     }
-  }
+  
+}
+
+.image-upload-btn{
+  font-size: .9rem;
+  border: 1px solid rgba(211, 211, 211, 0.284);
+  padding: .3rem;
+  border-radius: 10px;
+  color: white;
+  font-weight: 200;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: transparent;
+  border: 1px solid lightgray;
+  padding: .3rem 2rem;
+  font-size: .9rem;
+  font-weight: 200;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #373B44;
+background: -webkit-linear-gradient(to right, #4286f4, #373B44);
+background: linear-gradient(to right, #4286f4, #373B44); 
+}
+  
+
+
 
   .profile-image-box {
     width: 150px;
@@ -32,11 +66,15 @@
     margin: 0 auto;
     display: flex;
     overflow: hidden;
-
+    border: 2px solid white;
+    padding: .3rem;
     img {
       width: 100%;
+      border-radius: 50%;
       object-fit: cover;
     }
+
+    
   }
 
   > form {
@@ -68,6 +106,11 @@
       font-weight: 200;
       text-transform: uppercase;
       letter-spacing: 1.5px;
+
+      &.delete-button{
+        background: transparent;
+        font-size: .5rem;
+      }
 
       &:hover{
         background: #373b44;

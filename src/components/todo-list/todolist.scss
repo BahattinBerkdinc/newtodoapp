@@ -1,0 +1,36 @@
+
+
+.todo-list{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    span{
+        display: block;
+        color: white;
+        font-weight: 300;
+        padding: .3rem .8rem;
+        border-radius: 15px;
+        flex: 1;
+        background: #8d2de274; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #4b00e071,
+          #8d2de269
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #4b00e063,
+          #8d2de25f
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    svg{
+        font-size: 1.5rem;
+        color: rgba(255, 0, 0, 0.603);
+        cursor: pointer;
+        &:last-child{
+            color: greenyellow;
+        }
+    }
+}

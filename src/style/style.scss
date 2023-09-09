@@ -1,6 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import "bootstrap/scss/bootstrap";
 
 body {
     background: #373B44;
+    font-family: 'Poppins', sans-serif;
     
+}
+
+
+.glass{
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.091);
+}
+
+a{
+  text-decoration: none;
 }
