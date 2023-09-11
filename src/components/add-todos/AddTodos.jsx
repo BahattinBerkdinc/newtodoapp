@@ -18,8 +18,8 @@ const AddTodos = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const updatedTodos = [...store.todos, enteredTodo];
-    dispatch(setTodos(updatedTodos));
+    // const updatedTodos = [...store.todos, enteredTodo];
+    dispatch(addTodo(enteredTodo));
     setEnteredTodo(""); // Temizleme işlemi
   }
   

@@ -17,8 +17,8 @@ const PersonalTodos = () => {
             <AddTodos />
             <Todos />
             {
-                todolist.todos.map((todolist,index)=>(
-                    <TodoList key={index} todolist={todolist}/>
+                todolist.todos.map((todolist)=>(
+                    <TodoList key={todolist.id} todolist={todolist}/>
                 ))
             }
         </div>

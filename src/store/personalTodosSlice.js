@@ -13,8 +13,13 @@ export const personalTodosSlice = createSlice({
             state.todos = action.payload;
         },
         addTodo: (state, action) => {
-            state.todos.push(action.payload);
-          },
+            const newTodo = {
+                id: Date.now(), // Otomatik bir ID oluşturuluyor
+                text: action.payload, // Girilen todo metni
+            };
+            state.todos.push(newTodo);
+        },
+        
           deleteTodo: (state, action) => {
             state.todos = state.todos.filter((todo) => todo.id !== action.payload);
           },
