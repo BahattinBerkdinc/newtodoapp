@@ -19,16 +19,21 @@ const LoginForm = () => {
     setUserInfo(e.target.value);
   };
 
+  const MAX_IMAGE_SIZE = 5 * 1024 * 1024; // 5MB sınırı (örneğin)
+
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        setProfileImageLocal(event.target.result);
-      };
-      reader.readAsDataURL(file);
+      if (file.size > MAX_IMAGE_SIZE) {
+        alertSwal("error","Error","Image size must be less than 5MB");
+      } else {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          setProfileImageLocal(event.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
     }
-    
   };
 
   const handleSubmit = (e) => {

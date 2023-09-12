@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import "./addtodos.scss"
 import { Button, Form } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import { addTodo, setTodos } from '../../store/personalTodosSlice'
+import { useDispatch } from 'react-redux'
+import { addPersonalTodo } from '../../store/personalTodosSlice'
+import { addBussinessTodo } from '../../store/bussinessTodosSlice'
+import { useLocation } from 'react-router-dom'
+import alertSwal from "../../helpers/messages"
 const AddTodos = () => {
 
   const [enteredTodo,setEnteredTodo] = useState("")
 
-  const store = useSelector((state) => state.personalTodos);
-  console.log(store);
+  const pathname = useLocation().pathname
+
   const dispatch = useDispatch()
 
 
@@ -18,9 +21,19 @@ const AddTodos = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const updatedTodos = [...store.todos, enteredTodo];
-    dispatch(addTodo(enteredTodo));
-    setEnteredTodo(""); // Temizleme işlemi
+
+    if(enteredTodo === "") {
+      alertSwal("error","Opps. Wait!","Please enter a todo");
+      return
+    }
+
+    if (pathname === "/bussiness-todos") {
+      dispatch(addBussinessTodo(enteredTodo));
+    } else {
+      dispatch(addPersonalTodo(enteredTodo));
+    }
+
+    setEnteredTodo("");
   }
   
 
@@ -36,6 +49,7 @@ const AddTodos = () => {
         type="text" 
         placeholder="Enter Todo" 
         onChange={handleTodo}
+        value={enteredTodo}
         />
     <Button type='submit'>Add</Button>
     </Form>

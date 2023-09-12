@@ -1,0 +1,25 @@
+
+
+.todos-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    flex: 1;
+    padding: 3rem 0!important;
+
+    >.top{
+        display: flex;
+        flex-direction: column;
+
+        .page-category{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+    }
+
+    
+
+    
+}

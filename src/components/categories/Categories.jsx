@@ -2,6 +2,9 @@ import React from 'react'
 import "./categories.scss"
 import { Link } from 'react-router-dom'
 const Categories = () => {
+
+  
+
   return (
     <div className='categories'>
       <Link to={"/bussiness-todos"}>
@@ -10,6 +13,7 @@ const Categories = () => {
       <span>Bussiness TODO's</span>
       </div>
       </Link>
+      
       <div className="line"></div>
      <Link to={"/personal-todos"}>
      <div className="personal">

@@ -6,7 +6,7 @@ const LoginPage = () => {
   return (
     <Container>
     <Row className=" justify-content-center">
-      <Col sm={6}>
+      <Col xs={12} sm={12} >
         <LoginForm/>
       </Col>
     </Row>

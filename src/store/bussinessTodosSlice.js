@@ -2,24 +2,28 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    todos: []
+    todos : localStorage.getItem("bussinesstodos") ? JSON.parse(localStorage.getItem("bussinesstodos")) : [],
 }
 
 export const bussinessTodosSlice = createSlice({
     name: "bussinessTodos",
     initialState,
     reducers: {
-        setTodos: (state, action) => {
-            state.todos = action.payload;
+        addBussinessTodo: (state, action) => {
+            const newTodo = {
+                id: Date.now(), 
+                text: action.payload, 
+            };
+            state.todos.push(newTodo);
+
+            localStorage.setItem("bussinesstodos", JSON.stringify(state.todos));
         },
-        addTodo: (state, action) => {
-            state.todos.push(action.payload);
-        },
-        deleteTodo: (state, action) => {
+        deleteBussinessTodo: (state, action) => {
             state.todos = state.todos.filter((todo) => todo.id !== action.payload);
-        },
+            localStorage.setItem("bussinesstodos", JSON.stringify(state.todos));
+          },
     }
 })
 
-export const { setTodos,addTodo,deleteTodo } = bussinessTodosSlice.actions;
+export const { addBussinessTodo,deleteBussinessTodo } = bussinessTodosSlice.actions;
 export default bussinessTodosSlice.reducer

@@ -1,53 +1,77 @@
+.todo-list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 
+  @media (max-width: 768px) {
+    gap: .5rem;
+  }
 
-.todo-list{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  span {
+    display: block;
+    color: white;
+    font-weight: 300;
+    padding: 0.6rem 0.8rem;
+    border-radius: 15px;
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    transition: all 500ms ease-in-out;
+    background: #8d2de274;
+    background: -webkit-linear-gradient(to right, #4b00e071, #8d2de269);
+    background: linear-gradient(to right, #4b00e063, #8d2de25f);
 
-    span{
-        display: block;
-        color: white;
-        font-weight: 300;
-        padding: .6rem .8rem;
-        border-radius: 15px;
-        flex: 1;
-        background: #8d2de274; /* fallback for old browsers */
-        background: -webkit-linear-gradient(
-          to right,
-          #4b00e071,
-          #8d2de269
-        ); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(
-          to right,
-          #4b00e063,
-          #8d2de25f
-        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    @media (max-width: 478px) {
+      font-size: .7rem;
+      padding: .5rem ;
+    }
+    @media (max-width: 768px) {
+      font-size: .8rem;
+      padding: .6rem ;
+    }
+  }
+
+  svg {
+    font-size: 1.5rem;
+    color: rgba(255, 0, 0, 0.603);
+    cursor: pointer;
+    &:last-child {
+      color: greenyellow;
     }
 
-    svg{
-        font-size: 1.5rem;
-        color: rgba(255, 0, 0, 0.603);
-        cursor: pointer;
-        &:last-child{
-            color: greenyellow;
-        }
+    @media (max-width: 478px) {
+      font-size: 1.2rem;      
     }
+  }
 }
 
-.todo-item{
+.todo-item {
   position: relative;
 
-  >div{
+  > div:first-child {
     position: absolute;
-    top: .3rem;
+    top: 0.3rem;
     right: 1rem;
-    font-size: .5rem;
+    font-size: 0.5rem;
     color: rgba(255, 255, 255, 0.432);
   }
 }
 
-.done-todo{
-  background-color: lightgray!important;
-  text-decoration: line-through;
+.done-todo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #8e2de2;
+  background: -webkit-linear-gradient(to right, #4a00e0, #8e2de2);
+  background: linear-gradient(to right, #4a00e0, #8e2de2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: bold;
 }

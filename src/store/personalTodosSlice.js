@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    todos : [],
+    todos : localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [],
 }
 
 
@@ -9,22 +9,23 @@ export const personalTodosSlice = createSlice({
     name: "personalTodos",
     initialState,
     reducers: {
-        setTodos: (state, action) => {
-            state.todos = action.payload;
-        },
-        addTodo: (state, action) => {
+        
+        addPersonalTodo: (state, action) => {
             const newTodo = {
-                id: Date.now(), // Otomatik bir ID oluşturuluyor
-                text: action.payload, // Girilen todo metni
+                id: Date.now(), 
+                text: action.payload, 
             };
             state.todos.push(newTodo);
+
+            localStorage.setItem("todos", JSON.stringify(state.todos));
         },
         
-          deleteTodo: (state, action) => {
+        deletePersonalTodo: (state, action) => {
             state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+            localStorage.setItem("todos", JSON.stringify(state.todos));
           },
     }
 })
 
-export const { setTodos,addTodo,deleteTodo } = personalTodosSlice.actions;
+export const { addPersonalTodo,deletePersonalTodo } = personalTodosSlice.actions;
 export default personalTodosSlice.reducer
