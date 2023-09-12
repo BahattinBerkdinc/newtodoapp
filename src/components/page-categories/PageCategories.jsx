@@ -8,7 +8,7 @@ const PageCategories = () => {
 
   const storePersonal = useSelector((state) => state.personalTodos);
   const storeBussiness = useSelector((state) => state.bussinessTodos);
-
+  
   const store = useSelector((state) => state.addUserInfo);
 
 
@@ -27,12 +27,13 @@ const PageCategories = () => {
           </div>
         </div>
       </Link>
-      <div className="profile-image-box">
+      {
+        store.profileImage && <div className="profile-image-box">
         {
           <img src={store.profileImage} alt="" />
         }
-      
       </div>
+      }
       <Link to={"/bussiness-todos"}>
         <div className="page-bussiness-category">
           <span>{storeBussiness.todos.length} Tasks</span>

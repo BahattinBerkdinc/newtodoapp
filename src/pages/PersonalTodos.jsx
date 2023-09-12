@@ -4,7 +4,7 @@ import AddTodos from '../components/add-todos/AddTodos'
 import TodoList from '../components/todo-list/TodoList'
 import { useSelector } from 'react-redux'
 import "./personaltodospage.scss"
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Col, Container, Row } from 'react-bootstrap'
 const PersonalTodos = () => {
 
@@ -17,9 +17,10 @@ const PersonalTodos = () => {
     console.log(pathname);
 
     return (
-        <Container className='glass p-5'>
+        <Container className='glass page-container'>
             <Row className='todos-page'>
                 <Col className="top">
+                    <Link to={"/"} className='back'>Back To Login</Link>
                     <div className='page-category'>
                         <PageCategories />
                     </div>

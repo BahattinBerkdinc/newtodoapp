@@ -6,6 +6,8 @@ import "./loginform.scss";
 import Categories from "../categories/Categories";
 import placeholderProfilePic from "../../assets/images/userplaceholder.png"
 import alertSwal from "../../helpers/messages";
+import { clearPersonalTodos } from "../../store/personalTodosSlice";
+import { clearBussinessTodos } from "../../store/bussinessTodosSlice";
 
 const LoginForm = () => {
   const [userInfo, setUserInfo] = useState("");
@@ -51,6 +53,8 @@ const LoginForm = () => {
 
   const handleDeleteAccount = () => {
     dispatch(clearUserInfo())
+    dispatch(clearPersonalTodos())
+    dispatch(clearBussinessTodos())
   }
   
 
@@ -96,7 +100,7 @@ const LoginForm = () => {
             }
               
               {
-                store.userName && <Button type="submit" className="w-50 mt-5 mx-auto delete-button">Delete Account</Button>
+                store.userName && <Button type="submit" onClick={handleDeleteAccount} className="w-50 mt-5 mx-auto delete-button">Delete Account</Button>
               }
             </Form>
           
